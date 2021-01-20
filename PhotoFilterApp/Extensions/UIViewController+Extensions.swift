@@ -13,7 +13,7 @@ extension UIViewController {
         let appearence = UINavigationBarAppearance()
         appearence.configureWithOpaqueBackground()
         appearence.largeTitleTextAttributes = [.foregroundColor: UIColor.white]
-        appearence.backgroundColor = .systemBlue
+        appearence.backgroundColor = .systemOrange
         
         let navBar = navigationController?.navigationBar
         navBar?.compactAppearance = appearence

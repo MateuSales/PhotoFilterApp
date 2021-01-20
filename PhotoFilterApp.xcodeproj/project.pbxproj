@@ -16,6 +16,7 @@
 		60B8D5F125B7AB9000DED44F /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8D5F025B7AB9000DED44F /* UIViewController+Extensions.swift */; };
 		60B8D5F525B7ABB900DED44F /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8D5F425B7ABB900DED44F /* UIView+Extensions.swift */; };
 		60B8D5F925B7AD0F00DED44F /* ViewCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8D5F825B7AD0F00DED44F /* ViewCodable.swift */; };
+		60B8D5FC25B7AF3F00DED44F /* PhotosCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60B8D5FB25B7AF3F00DED44F /* PhotosCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		60B8D5F025B7AB9000DED44F /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		60B8D5F425B7ABB900DED44F /* UIView+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
 		60B8D5F825B7AD0F00DED44F /* ViewCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewCodable.swift; sourceTree = "<group>"; };
+		60B8D5FB25B7AF3F00DED44F /* PhotosCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotosCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				60B8D5E625B7A9A200DED44F /* HomeViewController.swift */,
+				60B8D5FB25B7AF3F00DED44F /* PhotosCollectionViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -205,6 +208,7 @@
 				60B8D5F125B7AB9000DED44F /* UIViewController+Extensions.swift in Sources */,
 				60B8D5D225B7A81C00DED44F /* AppDelegate.swift in Sources */,
 				60B8D5F525B7ABB900DED44F /* UIView+Extensions.swift in Sources */,
+				60B8D5FC25B7AF3F00DED44F /* PhotosCollectionViewController.swift in Sources */,
 				60B8D5D425B7A81C00DED44F /* SceneDelegate.swift in Sources */,
 				60B8D5E725B7A9A200DED44F /* HomeViewController.swift in Sources */,
 				60B8D5F925B7AD0F00DED44F /* ViewCodable.swift in Sources */,
