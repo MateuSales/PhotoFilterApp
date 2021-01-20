@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class HomeViewController: UIViewController, ViewCodable {
     
@@ -52,7 +53,11 @@ class HomeViewController: UIViewController, ViewCodable {
     }
     
     @objc func buttonRightPressed() {
-        let controller = PhotosCollectionViewController()
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        layout.itemSize = CGSize(width: 100, height: 100)
+        layout.scrollDirection = .vertical
+        let controller = PhotosCollectionViewController(collectionViewLayout: layout)
         present(controller, animated: true, completion: nil)
     }
     
