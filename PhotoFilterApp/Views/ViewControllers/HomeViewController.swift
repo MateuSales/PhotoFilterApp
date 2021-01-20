@@ -10,13 +10,15 @@ import RxSwift
 
 class HomeViewController: UIViewController, ViewCodable {
     
-    lazy var image: UIImageView = {
+    let disposeBag = DisposeBag()
+    
+    lazy var photoImageView: UIImageView = {
         let image = UIImageView()
-        image.backgroundColor = .blue
+        image.backgroundColor = .white
         return image
     }()
     
-    lazy var button: UIButton = {
+    lazy var buttonApplyFilter: UIButton = {
         let button = UIButton()
         button.backgroundColor = .systemOrange
         button.layer.cornerRadius = 10
@@ -34,14 +36,14 @@ class HomeViewController: UIViewController, ViewCodable {
     }
     
     func buildViewHierarchy() {
-        view.addSubview(image)
-        view.addSubview(button)
+        view.addSubview(photoImageView)
+        view.addSubview(buttonApplyFilter)
     }
     
     func setupConstraints() {
-        image.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.safeAreaLayoutGuide.leftAnchor, right: view.safeAreaLayoutGuide.rightAnchor, height: view.frame.size.height * 0.7)
+        photoImageView.anchor(top: view.safeAreaLayoutGuide.topAnchor, left: view.safeAreaLayoutGuide.leftAnchor, right: view.safeAreaLayoutGuide.rightAnchor, height: view.frame.size.height * 0.7)
         
-        button.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingLeft: 12, paddingBottom: 12, paddingRight: 12, height: 60)
+        buttonApplyFilter.anchor(left: view.leftAnchor, bottom: view.bottomAnchor, right: view.rightAnchor, paddingLeft: 12, paddingBottom: 12, paddingRight: 12, height: 60)
     }
     
     func setupAdditionalConfiguration() {
@@ -58,6 +60,9 @@ class HomeViewController: UIViewController, ViewCodable {
         layout.itemSize = CGSize(width: 100, height: 100)
         layout.scrollDirection = .vertical
         let controller = PhotosCollectionViewController(collectionViewLayout: layout)
+        controller.selectedPhoto.subscribe(onNext: { [weak self] photo in
+            self?.photoImageView.image = photo
+        }).disposed(by: disposeBag)
         present(controller, animated: true, completion: nil)
     }
     
