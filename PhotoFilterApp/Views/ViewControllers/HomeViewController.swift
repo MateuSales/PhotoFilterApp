@@ -26,6 +26,7 @@ class HomeViewController: UIViewController, ViewCodable {
         button.titleLabel?.font = UIFont.boldSystemFont(ofSize: 24)
         button.clipsToBounds = true
         button.addTarget(self, action: #selector(buttonApplyFilterPressed), for: .touchUpInside)
+        button.isHidden = true
         return button
     }()
     
@@ -60,13 +61,36 @@ class HomeViewController: UIViewController, ViewCodable {
         layout.itemSize = CGSize(width: 100, height: 100)
         layout.scrollDirection = .vertical
         let controller = PhotosCollectionViewController(collectionViewLayout: layout)
+        
         controller.selectedPhoto.subscribe(onNext: { [weak self] photo in
-            self?.photoImageView.image = photo
+            
+            DispatchQueue.main.async {
+                self?.updateUI(with: photo)
+                
+            }
+            
         }).disposed(by: disposeBag)
+        
         present(controller, animated: true, completion: nil)
     }
     
+    private func updateUI(with image: UIImage) {
+        self.photoImageView.image = image
+        self.buttonApplyFilter.isHidden = false
+    }
+    
     @objc func buttonApplyFilterPressed() {
-        print("Button pressed")
+        
+        guard let sourceImage = self.photoImageView.image else { return }
+        
+        FilterService().applyFilter(to: sourceImage).subscribe(onNext: { filteredImage in
+            
+            DispatchQueue.main.async {
+                self.photoImageView.image = filteredImage
+            }
+            
+        }).disposed(by: disposeBag)
+        
+        
     }
 }
